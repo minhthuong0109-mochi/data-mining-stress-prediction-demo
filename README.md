@@ -9,7 +9,7 @@ The system also supports KNN-based micro-steps recommendations using artifacts b
 
 - **Web form UI** (`/`) to input daily usage metrics and display results
 - **REST API** endpoint (`/api/predict/`) to return JSON prediction output
-- **KMeans clustering** to map user into a behavior cluster + **profile name**
+- **KMeans clustering** to map user into a behavior cluster + profile name
 - **Calibrated risk model** to output:
   - stress probability
   - predicted label (0/1)
@@ -26,9 +26,7 @@ The system also supports KNN-based micro-steps recommendations using artifacts b
 - `stress_api/` : Django app (views, urls)
 - `src/services/ml_service.py` : ML inference logic (load artifacts, feature engineering, predict cluster/risk, recommend micro-steps)
 - `templates/index.html` : UI form + results rendering
-- `resources/models/` : stored model artifacts (`*.pkl`) (optional if you keep them in root)
-
-> Note: Make sure model artifact paths in `ml_service.py` match your folder layout.
+- `resources/models/` : stored model artifacts (`*.pkl`)
 
 ---
 
@@ -62,5 +60,5 @@ The prediction returns:
 - `profile_name` (mapped from cluster_id)
 - `stress_probability`
 - `pred_label`
-- `micro_steps` (list of recommendation actions)
+- `micro_steps` (list of recommendation actions), tips & playlist
 
